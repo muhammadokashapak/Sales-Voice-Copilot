@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+websockets
+pydantic
+requests
+pypdf
+openai-whisper
+torch
+numpy
+langchain
+langchain-community
+langchain-chroma
+langchain-ollama
+chromadb
