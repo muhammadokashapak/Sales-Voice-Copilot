@@ -1,147 +1,128 @@
-﻿<div align="center">
-
-# 🎙️ Sales Voice Co-Pilot
-### Real-Time Local AI Sales Intelligence, Voice RAG & Intent Decider
-
-[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-[![Python](https://img.shields.io/badge/Python_3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![ChromaDB](https://img.shields.io/badge/ChromaDB-Vector_Store-FF6F00?style=for-the-badge)](https://www.trychroma.com/)
-[![Whisper](https://img.shields.io/badge/OpenAI_Whisper-Local_STT-412991?style=for-the-badge&logo=openai&logoColor=white)](https://github.com/openai/whisper)
-[![Ollama](https://img.shields.io/badge/Ollama-Local_LLM-000000?style=for-the-badge)](https://ollama.ai/)
-[![WebSockets](https://img.shields.io/badge/WebSockets-Real--Time_Stream-010101?style=for-the-badge&logo=socketdotio&logoColor=white)](https://websockets.spec.whatwg.org/)
-
-<p align="center">
-  <b>Transform live sales calls into high-conversion closing opportunities with sub-second AI battlecard retrieval, hidden intent decoding, and voice assistance.</b>
-</p>
-
-[Key Features](#-key-features) • [Architecture](#-architecture) • [Quickstart](#-quickstart) • [UI Overview](#-ui-cockpit-features) • [API Reference](#-api-endpoints)
-
----
-
-</div>
-
-## 🌟 Highlights
-
-- **⚡ Sub-Second AI Latency**: Retrieves enterprise sales battlecards in `<50ms` locally with zero external cloud dependencies.
-- **🛰️ Live Meeting Co-Pilot**: Directly captures live client audio from **Google Meet**, **Zoom**, or **MS Teams** browser tabs via WebRTC.
-- **🎯 Client Intent & Psychology Decider**: Classifies client objections, uncovers subconscious fears, and generates tactical Do's & Don'ts with ready-to-speak pitches.
-- **🎧 Voice Cue in Ear (TTS)**: Whisper-guided natural English text-to-speech cue directly into the rep's earphones.
-- **🪟 Floating Zoom HUD**: Ultra-compact, draggable, transparent overlay for seamless reference during screen shares.
-- **🌓 Dual Executive Themes**: Cyber-Dark Glassmorphism and high-contrast Light Theme with zero layout shifts.
-
----
-
-## 🏗️ Architecture
-
-```mermaid
-flowchart LR
-    subgraph Client ["Client Interface"]
-        Mic["🎤 Live Mic / Tab Audio"]
-        UI["🖥️ Modern Glassmorphism UI"]
-        HUD["🪟 Floating Zoom HUD"]
-    end
-
-    subgraph Backend ["FastAPI Gateway (:8000)"]
-        WS["⚡ WebSocket Hub (/ws)"]
-        STT["🎙️ OpenAI Whisper STT"]
-        RAG["🧠 Hybrid RAG Engine"]
-    end
-
-    subgraph Intelligence ["Local Knowledge & LLM"]
-        Chroma["📚 ChromaDB (70 Battlecards)"]
-        Ollama["🦙 Ollama (Llama 3.2 / Phi-3)"]
-    end
-
-    Mic -->|Audio Stream| WS
-    UI -->|Objection Query| WS
-    WS --> STT
-    STT -->|Transcribed Speech| RAG
-    WS --> RAG
-    RAG --> Chroma
-    RAG --> Ollama
-    RAG -->|Strategic Closing Script| UI
-    RAG -->|Mini Cue| HUD
-```
-
----
-
-## 🚀 Quickstart
-
-### 1. Clone & Install Dependencies
-```bash
-# Clone the repository
-git clone https://github.com/muhammadokashapak/XortLogix.git
-cd XortLogix/rag_sales_assistant_local_ui
-
-# Install requirements
-pip install -r requirements.txt
-```
-
-### 2. Launch the Application (One-Click Launch)
-```bash
-python run_assistant.py
-```
-> The launcher will automatically start the server at `http://127.0.0.1:8000` and open your default browser.
-
-### 3. (Optional) Enable Ollama Local LLM
-```bash
-# In a separate terminal
-ollama serve
-ollama pull llama3.2:3b
-```
-*Note: The assistant operates seamlessly in **Direct KB Mode** even without Ollama running.*
-
----
-
-## 🎛️ UI Cockpit Features
-
-| Feature | Description | Shortcut / Action |
-| :--- | :--- | :--- |
-| **🎙️ Master Push-to-Talk** | Captures real-time rep or client speech | Hold <kbd>Spacebar</kbd> or click central mic |
-| **🔄 Auto-Listen (Hands-Free)** | Continuous voice activity detection (VAD) | Toggle switch in header |
-| **🛰️ Live Meeting Modal** | Tab audio capture for Zoom/Meet/Teams | Click mic icon → Start Stream |
-| **🎯 Intent Decider** | Analyzes mindset, hidden fear, and strategy | Enter text or click sample chip |
-| **📊 2-Column Strategy Modal** | Widescreen closing playbook & objection defense | Auto-pops upon objection match |
-| **🎧 Voice Cue in Ear (TTS)** | Speaks counter-pitch into earphone | Toggle `Voice Cue in Ear` |
-| **🪟 Floating Zoom HUD** | Compact overlay on top of meeting windows | Click `Zoom HUD` in top navigation |
-| **🌓 Theme Switcher** | Toggle between Cyber-Dark and Crisp Light Mode | Click `Moon / Sun` button |
-
----
-
-## 📡 API Endpoints
-
-| Method | Route | Description |
-| :--- | :--- | :--- |
-| `GET` | `/` | Serves the single-page application dashboard |
-| `GET` | `/api/health` | Health check, vector store state & Ollama status |
-| `POST` | `/api/query` | Direct RAG query against the 70 battlecard database |
-| `POST` | `/api/analyze-intent` | NLP intent classification, psychology & tactical tips |
-| `GET` | `/api/battlecards` | Retrieves all 70 structured sales battlecards |
-| `POST` | `/api/stt` | Transcribes uploaded WAV/WebM audio using Whisper |
-| `WS` | `/ws` | Real-time bi-directional streaming for audio & strategy |
-
----
-
-## 📂 Project Structure
-
-```
-rag_sales_assistant_local_ui/
-├── run_assistant.py      # One-click application launcher
-├── server.py             # FastAPI backend & WebSocket server
-├── rag_engine.py         # Vector search, intent decider & Ollama synthesis
-├── stt_engine.py         # Local Whisper Speech-to-Text processor
-├── zoom.pdf              # 70 Enterprise Q&A Sales Battlecards Knowledge Base
-├── requirements.txt      # Python dependencies
-└── static/
-    ├── index.html        # Glassmorphism cockpit & strategy modals
-    ├── css/
-    │   └── style.css     # Cyber-Dark & Light theme styling system
-    └── js/
-        └── app.js        # WebSockets, audio streaming, VAD & UI controller
-```
-
----
+# 🎙️ Sales Copilot — Real-Time Voice AI & ChromaDB Semantic Sales Assistant
 
 <div align="center">
-  <sub>Built with ❤️ for High-Performance Enterprise Sales Teams by <b>XortLogix</b></sub>
+
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-Backend%20Stream-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![ChromaDB](https://img.shields.io/badge/ChromaDB-Vector%20Search-FF6600?style=for-the-badge)](https://trychroma.com)
+[![Chrome Extension](https://img.shields.io/badge/Chrome-Manifest%20V3-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](#)
+[![Whisper](https://img.shields.io/badge/Whisper-Real--Time%20STT-00A67E?style=for-the-badge)](https://openai.com/research/whisper)
+[![License](https://img.shields.io/badge/License-MIT-emerald?style=for-the-badge)](LICENSE)
+[![Author](https://img.shields.io/badge/Author-Muhammad%20Okasha-blueviolet?style=for-the-badge)](https://github.com/muhammadokashapak)
+
+<p align="center">
+  <strong>Live In-Call Objection Handling, Product Knowledge Retrieval & Real-Time Battlecards Powered by Whisper Speech-To-Text and Vector RAG</strong>
+</p>
+
+[📖 Overview](#-overview) •
+[⚡ Architecture & Data Flow](#-real-time-data-flow-architecture) •
+[✨ Core Capabilities](#-core-capabilities) •
+[📂 Directory Structure](#-directory-structure) •
+[🚀 Quickstart](#-quickstart--installation) •
+[👨‍💻 Author](#-author--connect)
+
+---
+
 </div>
+
+## 📖 Overview
+
+Sales representatives during live discovery and demo calls frequently face unexpected customer objections, detailed technical questions, and pricing comparisons. Flipping through static PDF playbooks, internal wikis, or competitor sheets mid-call distracts the rep and harms conversion rates.
+
+**Sales Copilot** is a real-time sales intelligence system consisting of a lightweight **Google Chrome Extension (Manifest V3)** and a high-performance **Python / FastAPI / ChromaDB** backend. By listening to live conversation audio, the system automatically transcribes prospect inquiries using Faster-Whisper, performs semantic vector retrieval against product knowledge bases, and flashes instant, contextual objection-handling cards directly on the rep's screen in **< 800 milliseconds**.
+
+---
+
+## ⚡ Real-Time Data Flow Architecture
+
+```mermaid
+graph TD
+    subgraph Live Call Capture
+        CALL[Zoom / Google Meet / Teams Browser Tab] --> EXT[Chrome Extension Audio Capture API]
+        EXT --> WS[WebSocket Audio Streamer: 16kHz PCM]
+    end
+
+    subgraph Audio & Transcription Engine
+        WS --> STT[Whisper Speech-To-Text Stream Engine]
+        STT --> INTENT[Sales Objection & Intent Detector]
+    end
+
+    subgraph Semantic RAG & Battlecard Retrieval
+        INTENT --> EMBED[Sentence-Transformer Embedding Model]
+        EMBED --> CHROMA[(ChromaDB Vector Store: Playbooks, Pricing & Competitors)]
+        CHROMA --> CONTEXT[Top-K Semantic Battlecard Snippets]
+        CONTEXT --> LLM[Fast Context Synthesizer]
+    end
+
+    subgraph Live Rep Interface
+        LLM --> OVERLAY[Chrome Extension Heads-Up Display]
+        OVERLAY --> REP[Sales Rep Sees Instant Counter-Objection]
+    end
+```
+
+---
+
+## ✨ Core Capabilities
+
+- 🎯 **Sub-Second Objection Handling:** Detects competitor mentions (e.g., *"Why should we choose you over Salesforce?"*) and displays counter-points instantly.
+- 🎧 **Universal Browser Audio Capture:** Works seamlessly across Google Meet, Zoom Web, Microsoft Teams, and dialers via Chrome tab audio capture.
+- 📚 **ChromaDB Semantic Vector Index:** Ingests product documentation, pricing tiers, security compliance sheets, and case study metrics.
+- 🔒 **Local & Confidential:** Vectors and speech pipelines can run entirely on-premise without exposing private enterprise sales negotiations.
+
+---
+
+## 📂 Directory Structure
+
+```
+Sales-Voice-Copilot/
+│
+├── chrome_extension/          # Manifest V3 browser extension
+│   ├── manifest.json          # Extension configuration & tab permissions
+│   ├── background.js          # Audio stream capture & WebSocket transport
+│   ├── content.js             # Real-time heads-up overlay injection
+│   └── popup.html             # Extension activation UI
+├── chroma_db_v2/              # Persistent ChromaDB vector collections & index
+├── rag_engine.py              # Semantic retrieval & battlecard ranking logic
+├── rag_app.py                 # FastAPI server & real-time WebSocket endpoints
+├── stt_engine.py              # Live audio chunking & Whisper transcription
+├── run_assistant.py           # Unified launcher for backend services
+├── requirements.txt           # Python dependency specification
+└── README.md                  # VIP Master Architecture Documentation
+```
+
+---
+
+## 🚀 Quickstart & Installation
+
+### 1. Backend Server Setup
+```bash
+git clone https://github.com/muhammadokashapak/Sales-Voice-Copilot.git
+cd Sales-Voice-Copilot
+
+python -m venv venv
+.\venv\Scripts\activate   # Linux/macOS: source venv/bin/activate
+
+pip install -r requirements.txt
+python run_assistant.py
+```
+The FastAPI WebSocket server will launch on `ws://localhost:8000`.
+
+### 2. Chrome Extension Installation
+1. Open Google Chrome and navigate to `chrome://extensions/`.
+2. Enable **Developer mode** (top right toggle).
+3. Click **Load unpacked** and select the `chrome_extension/` directory.
+4. Click the Sales Copilot icon on your browser toolbar and join any Google Meet or Zoom call to receive live battlecard assistance!
+
+---
+
+## 👨‍💻 Author & Connect
+
+**Muhammad Okasha**  
+*AI & Machine Learning Specialist | Full-Stack Architect*  
+- **GitHub:** [@muhammadokashapak](https://github.com/muhammadokashapak)
+- **Repository:** [Sales-Voice-Copilot](https://github.com/muhammadokashapak/Sales-Voice-Copilot)
+
+---
+
+## 📄 License
+This project is licensed under the [MIT License](LICENSE).
