@@ -1,0 +1,492 @@
+window.SALES_BATTLECARDS = [
+  {
+    "q_number": 1,
+    "question": "Client says \"Your pricing is significantly higher than other agencies or freelancers.",
+    "context": "Freelancers ya low-cost agencies aksar testing, code architecture, security protocols, aur \ndocumentation ko miss kar deti hain, jis se baad mein costly code rewrite karna padta hai. Humari \npricing production-ready code aur complete end-to-end responsibility ki wajah se hai.",
+    "pitch": "\"Humari pricing end-to-end software engineering, production-grade security, testing, aur dedicated project management ko \ncover karti hai. Low-cost alternatives aksar foundational practices miss kar dete hain jis se aage chal kar technical debt aur \nsecurity risks hote hain. Hum aapko ek scalable, ready-to-scale system dete hain jisme long-term maintenance support \nshaamil hota hai.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 2,
+    "question": "Client asks Can we get a discount or lower the overall estimate for this project?",
+    "context": "Direct discount dene se developers ki rate aur work quality compromise hoti hai. Best approach yeh \nhoti hai ke initial scope (MVP) ko chota kiya jaye.",
+    "pitch": "Hum quality par compromise nahi karte is liye rates discount nahi karte, lekin hum project scope ko aapke target budget ke \nmutabiq adjust kar sakte hain. Hum Phase 1 mein sirf Core MVP features build karenge aur secondary features ko Phase 2 \nke liye defer kar denge, jisse aapka initial investment kam ho jayega.",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 3,
+    "question": "Client asks \"What payment milestones and schedule do you follow?\"",
+    "context": "Financial risk ko balance karne ke liye milestone-based billing model follow kiya jata hai jo clear \ndeliverables se link hota hai.",
+    "pitch": "Hum deliverables-based payment schedule follow karte hain: 30% upfront deposit (project setup & architecture), 30% mid-\nproject milestone (core API & backend), 30% UAT (User Acceptance Testing phase), aur final 10% production release aur \ncomplete code handoff par.",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 4,
+    "question": "Client asks \"Will we be billed extra if the project timeline exceeds the estimated schedule?\"",
+    "context": "Fixed-price projects mein agency delay ki wajah se client ko extra pay nahi karna padta. Extra cost \nsirf tab hoti hai jab client scope change kare.",
+    "pitch": "1\n\"Nahi, fixed-scope contracts mein humari internal delay ki wajah se koi extra charges nahi hote. Extra cost sirf tab apply \nhoti hai jab aap initial SOW ke bahar koi naya feature request karein ya feedback loop mein delay ho.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 5,
+    "question": "Client asks \"Why should we choose a Fixed Price contract over Time & Material (Hourly)?\"",
+    "context": "Client ko dono models ki suitability batani hoti hai taake wo apne business model ke hisab se \nchoose kar sake.",
+    "pitch": "\"Fixed Price model tab best hai jab requirements 100% clear aur defined hon, kyun ke isme budget predict ho jata hai. \nTime & Material (T&M) tab better hai jab product evolve ho raha ho aur aapko continuous scope changes aur flexibility \nchahiye ho.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 6,
+    "question": "Client asks \"What is included in the initial upfront deposit?\"",
+    "context": "Upfront deposit lene ka maqsad dedicated team reserve karna aur foundational architecture setup \nkarna hota hai.",
+    "pitch": "\"Upfront deposit se hum aapke project ke liye developers allocate karte hain, system architecture design karte hain, \ndatabase schemas aur UI/UX wireframes banate hain, aur dev environments ready karte hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 7,
+    "question": "Client asks \"How do you handle unexpected technical complexities that increase development hours?\"",
+    "context": "Complexities ko handle karna agency ki responsibility hoti hai jab tak scope na badle.",
+    "pitch": "\"Fixed-price contracts mein unexpected technical hurdles ko humari engineering team agreed budget ke andar hi absorb \nkarti hai. Agar complexity ki wajah se core feature redefine karna pade, toh hum transparently discussion karke formal \nChange Order issue karte hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 8,
+    "question": "Client asks \"Do you offer flexible billing options for early-stage startups?\"",
+    "context": "Startups ke pass limited cash flow hota hai, is liye unhe phased rollouts suggest kiye jate hain.",
+    "pitch": "\"Haan, startups ke liye hum phased milestone rollouts offer karte hain taake aapka cost structure aapke fundraising ya \nrevenue milestones ke sath align ho sakay.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 9,
+    "question": "Client asks \"What currency and payment methods do you accept?\"",
+    "context": "2\nPayment process ki transparency clear ki jati hai.",
+    "pitch": "\"Hum Wire Transfer (ACH/SWIFT), Wise, aur Payoneer accept karte hain in USD, EUR, aur GBP. Standard terms Net-15 \ninvoices par hote hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 10,
+    "question": "Client asks \"Are server costs, API subscription fees, and third-party tools included in the development quote?\"",
+    "context": "Development fees aur third-party infrastructure fees ko alag rakhna mandatory hota hai ownership \nke liye.",
+    "pitch": "\"Development quote mein humari engineering aur architecture services include hoti hain. Third-party infrastructure costs \n(jaise AWS hosting, OpenAI/Gemini APIs) direct aapke corporate accounts par bill hote hain taake billing aur complete \nasset ownership aapke pass rahe.\"\nSection 2: Technical Stack, AI Infrastructure & \nArchitecture",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 11,
+    "question": "Client asks \"Why are you recommending Laravel/Node.js/Python over our preferred technology stack?\"",
+    "context": "Tech stack selection client ki requirement (real-time performance, ecosystem, scalability) ke base \npar hoti hai.",
+    "pitch": "\"Hum tech stack choose karte waqt performance, ecosystem, aur maintainability ko dekhte hain. Node.js real-time apps ke \nliye, Laravel structured web backend ke liye, aur Python AI/ML for RAG processing ke liye ideal hai. Agar aapka legacy \nstack maintain karna priority hai, toh hum us par bhi shift ho sakte hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 12,
+    "question": "Client asks \"How do you guarantee data privacy and prevent leakages in AI/LLM applications?\"",
+    "context": "Enterprise client ka sab se bada concern unka data leak hona hota hai.",
+    "pitch": "\"Hum zero-data-retention enterprise APIs ya local self-hosted LLMs deployment model use karte hain. Databases AES-256 \nencrypted hoti hain. Aapka proprietary data kabhi bhi public models ko train karne ke liye send nahi hota.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 13,
+    "question": "Client asks \"How do you mitigate AI hallucinations and ensure accurate responses?\" 3",
+    "context": "Direct LLM hallucinations se bachne ke liye RAG + System Guardrails ka reference diya jata hai.",
+    "pitch": "\"Hum Retrieval-Augmented Generation (RAG) pipelines use karte hain jisme strict guardrails hote hain. LLM sirf aapke \ninternal verified vector database aur documents se facts dhoond kar answer generate karta hai, aur har answer ke sath \ncitation source deta hai.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 14,
+    "question": "Client asks \"Can your architecture support high concurrent traffic and scale automatically?\"",
+    "context": "High traffic handle karne ke liye containerized aur microservices approach explain karni hoti hai.",
+    "pitch": "\"Haan, hum Docker/Kubernetes containers, Redis caching layers, asynchronous task queues, aur cloud auto-scaling setup \nkarte hain jo spike aane par system ko automatically expand kar deta hai.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 15,
+    "question": "Client asks \"Do you build custom AI models or fine-tune existing open- source models?\"",
+    "context": "Fine-tuning vs RAG decision use-case aur budget par depend karti hai.",
+    "pitch": "\"Standard tasks ke liye hum RAG over pre-trained models (Llama 3 / Gemini) choose karte hain kyun ke yeh fast aur \naccurate hai. High domain-specific tasks ke liye hum Llama 3 / Mistral ko PEFT/LoRA techniques se aapke custom dataset \npar fine-tune karte hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 16,
+    "question": "Client asks \"How do you manage database backups, redundancy, and disaster recovery?\"",
+    "context": "Data loss protection setup explain karna hota hai.",
+    "pitch": "\"Hum daily automated encrypted database snapshots, Point-In-Time Recovery (PITR), aur multi-region replication \nconfigure karte hain taake system outage ke dauran zero data loss ho.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 17,
+    "question": "Client asks \"How do you ensure API security and prevent unauthorized access?\"",
+    "context": "OWASP standards ke mutabiq security setup batani hai.",
+    "pitch": "\"Tamam APIs OAuth 2.0 / JWT tokens, Role-Based Access Control (RBAC), Rate-Limiting middleware, aur strict input \nvalidation se secure ki jati hain taake SQL injection aur XSS attack na ho sakay.\"\n4",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 18,
+    "question": "Client asks \"Can you integrate our legacy backend systems with modern cloud services?\"",
+    "context": "Old code base ke upar modern REST/GraphQL APIs ka wrapper build karna.",
+    "pitch": "\"Haan, hum legacy systems ke gird secure REST/GraphQL wrapper APIs aur middleware layers build karte hain jo aapke \nexisting backend ko modern cloud, web apps, aur AI tools se sync kar deti hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 19,
+    "question": "Client asks \"What vector database do you recommend for RAG architectures and why?\"",
+    "context": "Vector DB setup size aur performance requirement par depend karta hai.",
+    "pitch": "\"Lightweight / self-hosted systems ke liye hum PostgreSQL with pgvector ya ChromaDB use karte hain. Enterprise-scale \nreal-time search ke liye Pinecone, Qdrant, ya Milvus use karte hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 20,
+    "question": "Client asks \"How do you handle real-time speech-to-text (STT) and text-to- speech (TTS) latency?\"",
+    "context": "Audio latency kam karne ke liye WebSockets + Streaming APIs ka use.",
+    "pitch": "\"Hum Deepgram Nova-2 aur ElevenLabs ki streaming APIs ko WebSockets ke zariye connect karte hain. Audio stream \nchunks mein process hoti hai jis se total processing latency 500ms se kam rehti hai.\"\nSection 3: Project Delivery, Timeline & Scope \nManagement",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 21,
+    "question": "Client says \"We need this project completed in half the estimated schedule.\"",
+    "context": "Timeline fast karne se quality drop nahi honi chahiye, is liye parallel resources ya MVP focus ka \noption diya jata hai.",
+    "pitch": "\"Timeline compress karne ke do safe tarike hain: Ya toh hum dedicated developers badha kar parallel engineering karein, \nya fir pehle launch ke liye core MVP features launch karein aur baaki features fast follow-up releases mein dein.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 22,
+    "question": "Client asks \"How do you handle scope changes or new feature requests 5 mid-project?\"",
+    "context": "Unplanned work se timeline delay hoti hai, is liye structured Change Order process batayein.",
+    "pitch": "\"Hum formal Change Request (CR) process follow karte hain. Naye requirement aane par architect timeline aur cost impact \nevaluate karta hai aur aapki written approval ke baad usko agle sprint cycle mein integrate kiya jata hai.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 23,
+    "question": "Client asks \"How frequently will we receive project progress updates?\"",
+    "context": "Transparency buildup ke liye regular demos aur tracking access dena.",
+    "pitch": "\"Aapko weekly live sprint demos, bi-weekly progress reports, Slack/Teams par instant updates, aur Jira/Trello board par \nreal-time task status milta rahega.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 24,
+    "question": "Client asks \"What happens if a milestone is rejected during User Acceptance Testing (UAT)?\"",
+    "context": "Rejection resolution procedure explain karna.",
+    "pitch": "\"UAT ke dauran agar koi deliverable agreed spec ke mutabiq na ho, toh use high-priority bug treat karke hum bina kisi \nextra cost ke fix karte hain jab tak sign-off na mil jaye.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 25,
+    "question": "Client asks \"How do you estimate development time for complex software modules?\"",
+    "context": "Accurate estimation logic breakdown.",
+    "pitch": "\"Hum features ko discrete user stories mein break karte hain, historical velocity ke mutabiq story points assign karte hain, \naur third-party integrations ke liye risk buffers include karke timeline estimate karte hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 26,
+    "question": "Client asks \"What development methodology do you follow?\"",
+    "context": "Agile-Scrum framework.",
+    "pitch": "\"Hum 2-week sprint cycles wala Agile-Scrum framework follow karte hain, jisse continuous working software test karne ko \nmilta rehta hai aur quick adjustments easy hoti hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 27,
+    "question": "Client asks \"What is required from our internal team during the project lifecycle?\" 6",
+    "context": "Client participation expectations.",
+    "pitch": "\"Aapki taraf se ek Product Owner chahiye jo requirement clarifications, weekly sprint demos attend karne, aur UAT sign-\noffs fast time par de sakay.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 28,
+    "question": "Client asks \"How do you prevent project scope creep from delaying milestones?\"",
+    "context": "Scope creep protection logic.",
+    "pitch": "\"Hum SOW document ko baseline banate hain. Agreed scope ke alawa koi bhi naye additions ko backlog mein daal diya \njata hai taake active milestone deliverable delay na ho.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 29,
+    "question": "Client asks \"Can we add more developers to an ongoing sprint to speed up execution?\"",
+    "context": "Mid-sprint resource adding issues.",
+    "pitch": "\"Sprint ke beech mein naye devs lane se onboarding delay hota hai. Best practice yeh hai ke hum next sprint start hote hi \nteam size expand karein.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 30,
+    "question": "Client asks \"What is your protocol if a key developer working on our project resigns or falls ill?\"",
+    "context": "Continuity planning & documentation.",
+    "pitch": "\"Hum detailed code documentation, pair programming, aur shadow developers maintain karte hain, taake developer switch \nhone par 48 hours ke andar bina loss of context ke naya developer work start kar le.\"\nSection 4: IP Rights, Code Ownership & Legal \nAgreements",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 31,
+    "question": "Client asks \"Who owns the intellectual property (IP) and source code upon project completion?\"",
+    "context": "100% Code ownership agreement.\n7",
+    "pitch": "\"Full invoice payment ke baad, 100% custom source code, IP rights, database schemas, aur designs exclusively aapki \ncompany ki ownership ban jaate hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 32,
+    "question": "Client asks \"Are you willing to sign our custom Non-Disclosure Agreement (NDA) before sharing project details?\"",
+    "context": "Legal protection & secrecy.",
+    "pitch": "\"Bilkul, hum project details, logic, ya system assets discuss karne se pehle mutual NDA sign karte hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 33,
+    "question": "Client asks \"Can we perform an independent third-party code audit before final sign-off?\"",
+    "context": "Code quality confirmation.",
+    "pitch": "\"Haan, hum third-party security aur code audits ko encourage karte hain aur deployment se pehle unke feedback ko \nexecute karte hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 34,
+    "question": "Client asks \"Do you use open-source software (OSS) that could compromise our commercial IP rights?\"",
+    "context": "Open source licensing safety.",
+    "pitch": "\"Hum sirf permissive licenses (MIT, Apache 2.0) use karte hain aur strict copyleft licenses (GPL/AGPL) se bachte hain \ntaake aapka commercial code secure rahe.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 35,
+    "question": "Client asks \"How are custom trade secrets and business algorithms protected during development?\"",
+    "context": "Developer level security protocols.",
+    "pitch": "\"Legal NDAs ke alawa, developers ko Role-Based Access, 2FA, isolated private repositories, aur encrypted environments \nke zariye control kiya jata hai.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 36,
+    "question": "Client asks \"Where will our source code be stored during the development phase?\"",
+    "context": "Code storage transparency.\n8",
+    "pitch": "\"Aapka source code private GitHub/GitLab repositories par store hota hai jisme restricted team access aur branch \nprotection rules setup hotay hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 37,
+    "question": "Client asks \"What jurisdiction and governing laws apply to our service contract?\"",
+    "context": "Legal framework.",
+    "pitch": "\"Humare standard contracts international commercial laws par act karte hain, ya hum mutual review ke dauran aapki \npreferred legal jurisdiction par agree kar sakte hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 38,
+    "question": "Client asks \"Do you reuse code from previous client projects?\"",
+    "context": "Proprietary code reuse guarantee.",
+    "pitch": "\"Nahi, hum kisi doosre client ka proprietary code reuse nahi karte. Sirf internal open-source boilerplates aur utility libraries \nuse karte hain setup fast karne ke liye.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 39,
+    "question": "Client asks \"What non-compete commitments do you provide?\"",
+    "context": "Non-compete trust.",
+    "pitch": "\"Hum contracts mein Non-Compete clause include karte hain ke hum contract duration mein aapka direct clone product \nbuild nahi karenge.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 40,
+    "question": "Client asks \"Who retains ownership of the training datasets used to train our AI models?\"",
+    "context": "AI Data Ownership.",
+    "pitch": "\"Aapke saare raw, cleaned, aur fine-tuning datasets par 100% ownership aapki rehti hai. Project end hone par hum \ncomplete data handed over kar ke local system se wipe kar dete hain.\"\nSection 5: Quality Assurance, Security & \nPerformance Testing\n9",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 41,
+    "question": "Client asks \"What testing procedures do you execute before releasing software to production?\"",
+    "context": "Comprehensive QA lifecycle.",
+    "pitch": "\"Hum Unit Testing, API Integration Testing, End-to-End (E2E) UI Testing, Cross-Browser Compatibility, aur Load Stress \nTesting execute karne ke baad hi release karte hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 42,
+    "question": "Client asks \"How do you handle vulnerability testing and OWASP compliance?\"",
+    "context": "Application Security.",
+    "pitch": "\"Hum SAST (Static Code Scanning) aur OWASP Top 10 guidelines enforce karte hain taake SQL Injection, XSS, aur \nCSRF vulnerabilities na aayein.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 43,
+    "question": "Client asks \"How do you ensure application UI responsiveness across mobile and desktop devices?\"",
+    "context": "Responsive UX.",
+    "pitch": "\"Hum Mobile-First design design approach aur BrowserStack par physical device testing ke zariye har screensize par \nsmooth rendering check karte hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 44,
+    "question": "Client asks \"What performance load metrics do you guarantee for web applications?\"",
+    "context": "Speed benchmarks.",
+    "pitch": "\"Hum sub-2-second page load times aur under 200ms API response time target karte hain aur release se pehle JMeter/K6 \nse load test verify karte hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 45,
+    "question": "Client asks \"How do you manage bug tracking and defect prioritization during UAT?\"",
+    "context": "Bug handling protocol.",
+    "pitch": "\"Bugs ko Jira par Critical, Major, Minor categories mein log karte hain. Critical workflows stop karne wale bugs ko \nimmediate hotfix release diya jata hai.\"\n10",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 46,
+    "question": "Client asks \"Do you provide automated test scripts that our team can run later?\"",
+    "context": "Automated QA Handoff.",
+    "pitch": "\"Haan, Jest, PyTest, ya Cypress ke automated test suites aapke code repository mein include kar ke diye jaate hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 47,
+    "question": "Client asks \"How do you ensure code maintainability and readability for future developers?\"",
+    "context": "Clean Code Culture.",
+    "pitch": "\"Hum Strict Linting, TypeScript/Type Hints, Prettier code formatting, modular design, aur inline documentation strictly follow \nkarte hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 48,
+    "question": "Client asks \"What continuous integration and deployment (CI/CD) practices do you set up?\"",
+    "context": "CI/CD Automation.",
+    "pitch": "\"Hum GitHub Actions / GitLab CI workflows configure karte hain jo automated testing ke baad verified code ko \nstaging/production par auto-deploy kar dete hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 49,
+    "question": "Client asks \"How do you conduct accessibility (WCAG) testing?\"",
+    "context": "Accessibility compliance.",
+    "pitch": "\"Hum Lighthouse aur axe-core tools se WCAG 2.1 AA accessibility standards check karke design optimize karte hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 50,
+    "question": "Client asks \"What environment isolation protocols do you maintain?\"",
+    "context": "Dev/Staging/Prod separation.",
+    "pitch": "\"Hum Dev, Staging, aur Production environments ko isolated rakhte hain. Live production data kabhi bhi local development \nmachine par copy nahi kiya jata.\"\n11\nSection 6: Team Structure, Onboarding & \nCommunication",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 51,
+    "question": "Client asks \"Who will be assigned to our project team?\"",
+    "context": "Team composition transparency.",
+    "pitch": "\"Aapki dedicated team mein Technical Project Manager, Lead Systems Architect, Senior Full-Stack Engineers, QA \nSpecialist, aur DevOps Engineer shaamil hotay hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 52,
+    "question": "Client asks \"Can we interview developers before they are assigned to our project?\"",
+    "context": "Client Confidence building.",
+    "pitch": "\"Bilkul, hum developer CVs, GitHub repositories, aur past case studies share karte hain aur aap technical screening \ninterview arrange kar sakte hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 53,
+    "question": "Client asks \"How do you manage time zone differences for international clients?\"",
+    "context": "Overlap hours assurance.",
+    "pitch": "\"Hum daily 3 se 4 hours ka guaranteed live overlap timing set karte hain daily standups aur discussions ke liye, jabke baaki \nupdates asynchronous Slack channel par di jaati hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 54,
+    "question": "Client asks \"What project management tools and communication channels do you use?\"",
+    "context": "Tooling alignment.",
+    "pitch": "\"Hum Slack/Teams chat ke liye, Jira/Linear task management ke liye, aur GitHub/GitLab code sync ke liye use karte hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 55,
+    "question": "Client asks \"Can our internal technical team collaborate directly with your developers?\"",
+    "context": "12\nStaff augmentation setup.",
+    "pitch": "\"Haan, hum Hybrid Model support karte hain jahan humare engineers aapke internal dev team ke sath same repo aur daily \nstandup par work karte hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 56,
+    "question": "Client asks \"What language proficiency do your engineers maintain?\"",
+    "context": "Fluent communication.",
+    "pitch": "\"Humare leads aur senior engineers professional English fluent hain jo complex technical details clearly document aur \npresent kar sakte hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 57,
+    "question": "Client asks \"How do you handle developer offboarding or reassignments without disrupting velocity?\"",
+    "context": "Resource Transition.",
+    "pitch": "\"Hum standard architecture documentation aur shadow engineers maintain karte hain jis se resource change hone par 48 \nhours mein handover complete ho jata hai.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 58,
+    "question": "Client asks \"How do you track and log billable development hours?\"",
+    "context": "Transparent time tracking.",
+    "pitch": "\"Hourly billing ke liye developers Clockify/Hubstaff tracker use karte hain aur har task ko Jira ticket ID ke sath map karke \ndetailed report dete hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 59,
+    "question": "Client asks \"What is the escalation path if we are dissatisfied with a project deliverable?\"",
+    "context": "Management Escalation.",
+    "pitch": "\"Aap direct VP of Engineering se contact kar sakte hain. Escalation milne par 24 hours ke andar audit karke remediation \naction plan diya jata hai.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 60,
+    "question": "Client asks \"Do you provide technical documentation and system guides upon handoff?\"",
+    "context": "Documentation handoff deliverables.\n13",
+    "pitch": "\"Haan, complete deliverable mein Swagger API docs, Database ERD diagrams, System Architecture maps, aur \nDeployment Runbooks milte hain.\"\nSection 7: Post-Launch Support, Maintenance & \nSLAs",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 61,
+    "question": "Client asks \"What support warranty do you offer after the application goes live?\"",
+    "context": "Post-release Warranty.",
+    "pitch": "\"Hum launch ke baad 30 days ki free warranty dete hain jisme specification deviations aur bugs fix kiye jaate hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 62,
+    "question": "Client asks \"What is included in your monthly Service Level Agreement (SLA) maintenance plans?\"",
+    "context": "Maintenance retainer scope.",
+    "pitch": "\"SLA plans mein 24/7 uptime monitoring, security patches update, daily backup verification, proactive error tracking \n(Sentry), aur developer support hours shaamil hotay hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 63,
+    "question": "Client asks \"What are your guaranteed response times for critical application outages?\"",
+    "context": "SLA Response Timings.",
+    "pitch": "\"Critical Outage (P1) ke liye humara SLA guaranteed initial response time 15-30 minutes ka hai jab tak application \noperational state mein na aa jaye.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 64,
+    "question": "Client asks \"How do you handle minor feature enhancements after project deployment?\"",
+    "context": "Post-launch updates.",
+    "pitch": "\"Minor features ya toh aapke monthly SLA maintenance hours se adjust kar liye jaate hain ya ad-hoc mini-sprint ke tor par \nquote kiye jaate hain.\"\n14",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 65,
+    "question": "Client asks \"Will our team be trained on how to manage the system back- office?\"",
+    "context": "Team Onboarding.",
+    "pitch": "\"Haan, hum aapki admin team ke liye live training sessions conduct karte hain aur recorded video walkthroughs aur Admin \nManuals provide karte hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 66,
+    "question": "Client asks \"How do you monitor application health and performance in real time?\"",
+    "context": "Proactive Monitoring.",
+    "pitch": "\"Hum Datadog, Grafana, aur Sentry integrated server setups use karte hain jo critical errors and traffic anomalies ko real-\ntime detect karke alerts trigger karte hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 67,
+    "question": "Client asks \"What happens when third-party APIs integrated into our application update or break?\"",
+    "context": "Deprecation management.",
+    "pitch": "\"Hum maintenance SLA mein API version monitoring include karte hain taake endpoint deprecate hone se pehle hi \nintegration upgrade kar di jaye.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 68,
+    "question": "Client asks \"Do you handle domain migration, DNS configuration, and SSL deployment?\"",
+    "context": "Production Launch services.",
+    "pitch": "\"Haan, humari DevOps team complete deployment handle karti hai jisme DNS routing, SSL certificates (Let's Encrypt / \nAWS ACM), aur CDN (Cloudflare) setup Shaamil hota hai.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 69,
+    "question": "Client asks \"Can we transition to an in-house team after 6 months of agency maintenance?\"",
+    "context": "Handover to internal team.",
+    "pitch": "15\n\"Bilkul, hum in-house team transitions ko fully support karte hain aur architectural walkthroughs aur complete technical \nhandovers conduct karte hain.\"",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  },
+  {
+    "q_number": 70,
+    "question": "Client asks \"Why should we choose your agency over hiring an in-house engineering team?\"",
+    "context": "Agency vs In-house value proposition.",
+    "pitch": "\"In-house team hiring mein months lagte hain, recruitment overheads aur fixed salaries ki commitments hoti hain. Hum \naapko instant, battle-tested multi-domain team (DevOps, AI, Full-Stack, QA) ek fraction of cost par flexible scaling ke sath \nprovide karte hain.\"\n16",
+    "source": "Enterprise Sales & Client Handling Knowledge Base"
+  }
+];

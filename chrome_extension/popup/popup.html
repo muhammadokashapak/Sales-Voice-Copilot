@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+  <title>Sales Co-Pilot Extension</title>
+</head>
+<body>
+  <!-- Top Header -->
+  <div class="popup-header">
+    <div class="logo-section">
+      <span class="logo-icon">🎯</span>
+      <span class="logo-text">Sales Co-Pilot</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <button id="btnHeaderUploadDoc" class="header-action-btn" style="display:none;" title="Upload custom playbook & generate strategies">
+        <span>📤 Upload Playbook</span>
+      </button>
+      <span id="backendStatus" class="status-badge offline">🔴 Offline</span>
+    </div>
+  </div>
+
+  <!-- Hidden File Input for Direct Playbook Upload -->
+  <input type="file" id="popupFileInput" accept=".pdf,.docx,.txt,.csv" style="display:none;" />
+
+  <!-- ========================================================================= -->
+  <!-- 🔐 VIEW 1: AUTHENTICATION VIEW (SIGN IN / REGISTER ONLY) -->
+  <!-- ========================================================================= -->
+  <div id="authLoggedOutView" class="auth-gate-card" style="display:block;">
+    <div class="auth-card-title">
+      <div class="auth-lock-circle">🔐</div>
+      <div style="font-weight:700; font-size:14px; color:#f8fafc; margin-top:6px;">Sales Rep Access</div>
+      <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Sign in to activate real-time meeting AI co-pilot</div>
+    </div>
+
+    <div id="authSuccessMsg" class="auth-success-pill" style="display:none;"></div>
+
+    <div class="auth-toggle-row" style="margin-top:12px;">
+      <button type="button" id="btnTabLogin" class="tab-btn active">Sign In</button>
+      <button type="button" id="btnTabRegister" class="tab-btn">Register Rep</button>
+    </div>
+
+    <!-- Login Form -->
+    <form id="formMiniLogin" style="display:block; margin-top:10px;">
+      <div class="form-field">
+        <label class="field-label">Work Email</label>
+        <input type="email" id="txtPopupEmail" placeholder="e.g. you@company.com" required autocomplete="email" />
+      </div>
+      <div class="form-field" style="margin-top:8px;">
+        <label class="field-label">Password</label>
+        <input type="password" id="txtPopupPassword" placeholder="••••••••••••" required autocomplete="current-password" />
+      </div>
+      <button type="submit" id="btnPopupLogin" class="btn-auth-action" style="margin-top:12px;">
+        <span>Sign In to Co-Pilot</span> &rarr;
+      </button>
+    </form>
+
+    <!-- Register Form -->
+    <form id="formMiniRegister" style="display:none; margin-top:10px;">
+      <div class="form-field">
+        <label class="field-label">Full Name</label>
+        <input type="text" id="txtPopupRegName" placeholder="e.g. Hamza Tariq" required />
+      </div>
+      <div class="form-field" style="margin-top:8px;">
+        <label class="field-label">Work Email</label>
+        <input type="email" id="txtPopupRegEmail" placeholder="e.g. rep@xortlogix.com" required />
+      </div>
+      <div class="form-field" style="margin-top:8px;">
+        <label class="field-label">Password</label>
+        <input type="password" id="txtPopupRegPassword" placeholder="Create password..." required />
+      </div>
+      <button type="submit" id="btnPopupRegister" class="btn-auth-action" style="margin-top:12px;">
+        <span>Create Sales Rep Account</span> &rarr;
+      </button>
+    </form>
+
+    <div id="authErrorMsg" class="auth-error-pill" style="display:none;"></div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 🚀 VIEW 2: AUTHENTICATED MAIN DASHBOARD VIEW (ONLY VISIBLE WHEN LOGGED IN) -->
+  <!-- ========================================================================= -->
+  <div id="mainDashboardView" style="display:none;">
+    
+    <!-- User Profile Bar -->
+    <div class="auth-strip" id="authLoggedInView" style="display:flex; justify-content:space-between; align-items:center;">
+      <div class="user-info-badge">
+        <span id="userRoleEmoji" style="font-size:14px;">👤</span>
+        <span id="userDisplayName" style="font-weight:600; color:#38bdf8; font-size:12px;">Sales Rep</span>
+        <span id="userRoleBadge" class="role-pill">Rep</span>
+      </div>
+      <button id="btnLogout" class="btn-logout" title="Sign Out of Co-Pilot">✕</button>
+    </div>
+
+    <!-- Active Strategy Knowledge Status -->
+    <div class="kb-strip" id="kbStrip">
+      <div class="kb-label" style="display:flex; align-items:center; gap:6px; overflow:hidden;">
+        <span>📚</span>
+        <span id="lblActiveDocName" style="color:#38bdf8; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:170px;">zoom.pdf</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:6px;">
+        <span id="lblActiveDocCards" class="cards-count-pill">70 Cards</span>
+        <button id="btnUploadDocMini" class="btn-mini-upload" title="Upload custom playbook documents">📤 Upload</button>
+      </div>
+    </div>
+
+    <!-- Upload Status Alert Box -->
+    <div id="uploadStatusAlert" class="upload-alert" style="display:none;"></div>
+
+    <!-- Meeting Connection Section -->
+    <div class="meeting-connect-section">
+      <div class="section-label-prominent">🔗 LIVE MEETING HOOK (Google Meet / Zoom / Teams)</div>
+      <div class="input-group prominent">
+        <span class="input-icon">🌐</span>
+        <input type="text" id="meetingUrlInput" placeholder="https://meet.google.com/xyz-abc-def" autofocus autocomplete="off" />
+        <button id="btnPasteUrl" class="icon-btn" title="Paste from clipboard">📋 Paste</button>
+      </div>
+      
+      <div class="button-group">
+        <button id="btnConnectMeeting" class="connect-btn primary glowing">
+          <span class="btn-icon">🚀</span>
+          <span id="connectBtnText">Connect Meeting & Start Co-Pilot</span>
+        </button>
+        <button id="btnToggleCapture" class="capture-btn secondary">
+          <span class="btn-icon">🎤</span>
+          <span id="btnText">Listen Active Tab Instead</span>
+        </button>
+      </div>
+      <p id="captureStatus" class="capture-status">Paste meeting link or attach to current tab</p>
+    </div>
+
+    <!-- Live Transcript Preview -->
+    <div class="transcript-section">
+      <div class="section-label">Live Speech Stream</div>
+      <div id="liveTranscript" class="transcript-box">Waiting for meeting audio...</div>
+    </div>
+
+    <!-- Last Strategy Found -->
+    <div class="strategy-section" id="strategySection" style="display:none">
+      <div class="section-label">🎯 Detected Objection & Strategy</div>
+      <div id="lastStrategy" class="strategy-preview"></div>
+    </div>
+
+    <!-- Stats Row -->
+    <div class="stats-row">
+      <div class="stat"><span id="queryCount">0</span><small>Queries</small></div>
+      <div class="stat"><span id="matchCount">0</span><small>Matches</small></div>
+      <div class="stat"><span id="sessionTime">00:00</span><small>Session</small></div>
+    </div>
+
+    <!-- Footer with link to Full Cockpit -->
+    <div class="popup-footer">
+      <a href="http://127.0.0.1:8000" target="_blank" id="lnkOpenCockpit" style="color:#38bdf8; text-decoration:none; font-weight:600; font-size:11px;">
+        🖥️ Open Full Web Cockpit & Upload Docs &rarr;
+      </a>
+    </div>
+
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- ⚡ VIEW 3: DEDICATED EMBEDDINGS & CHUNKING CONVERSION SCREEN -->
+  <!-- ========================================================================= -->
+  <div id="uploadProcessingView" class="processing-card" style="display:none;">
+    <div class="processing-spinner-wrap">
+      <div class="processing-spinner"></div>
+      <div class="processing-spinner-inner">⚡</div>
+    </div>
+    
+    <h3 class="processing-title" id="lblProcessingTitle">Converting to Embeddings...</h3>
+    
+    <div class="processing-file-badge" id="lblProcessingFileName">
+      📄 playbook.pdf (43.0 KB)
+    </div>
+
+    <p class="processing-desc" id="lblProcessingDesc">
+      Your document is being parsed, chunked, and converted into neural vector embeddings. Kindly wait a moment...
+    </p>
+
+    <div class="processing-steps">
+      <div class="proc-step active" id="step1">
+        <span class="step-dot">●</span> <span>1. Extracting text & Q&A battlecards</span>
+      </div>
+      <div class="proc-step active" id="step2">
+        <span class="step-dot spin">◐</span> <span>2. Generating vector embeddings in ChromaDB</span>
+      </div>
+      <div class="proc-step" id="step3">
+        <span class="step-dot">☁️</span> <span>3. Syncing backup to Admin Google Drive</span>
+      </div>
+    </div>
+
+    <div id="uploadSuccessBanner" class="proc-success-pill" style="display:none;">
+      🎉 Strategy Battlecards Generated & Ingested!
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+
+
